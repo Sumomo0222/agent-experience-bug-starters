@@ -1,0 +1,148 @@
+:root {
+  --bg: #07111f;
+  --panel: rgba(15, 31, 52, 0.84);
+  --line: rgba(255, 255, 255, 0.14);
+  --text: #fff8df;
+  --muted: #9fb0c3;
+  --gold: #ffd36a;
+  --green: #7dffb2;
+  --pink: #ff7aa8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  background:
+    radial-gradient(circle at 16% 8%, rgba(255, 211, 106, .20), transparent 28%),
+    radial-gradient(circle at 82% 14%, rgba(125, 255, 178, .12), transparent 24%),
+    linear-gradient(155deg, #07111f 0%, #132043 52%, #180d28 100%);
+}
+
+.app {
+  width: 980px; /* BUG：固定宽度导致手机端横向溢出 */
+  margin: 0 auto;
+  padding: 34px 0 40px;
+}
+
+.hero { margin-bottom: 18px; }
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--pink);
+  font-size: 12px;
+  letter-spacing: .16em;
+  font-weight: 800;
+}
+
+h1 {
+  margin: 0;
+  font-size: 44px;
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.subtitle {
+  margin: 12px 0 0;
+  max-width: 680px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) 160px;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.stat, .restart, .side-panel, .board, .message {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  box-shadow: 0 16px 56px rgba(0,0,0,.25);
+}
+
+.stat {
+  min-height: 86px;
+  border-radius: 18px;
+  padding: 14px 16px;
+}
+
+.stat span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: .12em;
+}
+
+.stat strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 30px;
+  color: var(--gold);
+}
+
+.restart {
+  border-radius: 18px;
+  color: #111827;
+  background: linear-gradient(135deg, var(--gold), var(--green));
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.game-shell {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 14px;
+  align-items: stretch;
+}
+
+.board {
+  min-height: 510px;
+  border-radius: 28px;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.cell {
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 22px;
+  background: rgba(255,255,255,.055);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.cell:hover { transform: translateY(-2px); border-color: rgba(255, 211, 106, .45); }
+.cell.selected { outline: 3px solid rgba(255, 211, 106, .75); background: rgba(255, 211, 106, .16); }
+.fruit { font-size: 42px; filter: drop-shadow(0 8px 18px rgba(0,0,0,.28)); }
+.empty { opacity: .25; }
+
+.side-panel {
+  border-radius: 28px;
+  padding: 22px;
+}
+
+.side-panel h2 {
+  margin: 0 0 14px;
+  color: var(--pink);
+  font-size: 20px;
+}
+
+.side-panel ul { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.9; }
+
+.message {
+  margin-top: 14px;
+  border-radius: 18px;
+  padding: 13px 16px;
+  color: var(--muted);
+}
+
+/* BUG：没有响应式 media query，小屏幕会溢出 */

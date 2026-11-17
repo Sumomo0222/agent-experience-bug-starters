@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>好运水果合成器｜Bug Starter</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">BUG STARTER / 待修复</p>
+      <h1>好运水果合成器</h1>
+      <p class="subtitle">点击两个相同的祝福水果，合成更高级的好运果。当前版本故意保留了几个 Bug。</p>
+    </header>
+
+    <section class="dashboard" aria-label="游戏状态">
+      <div class="stat">
+        <span>分数</span>
+        <strong id="score">0</strong>
+      </div>
+      <div class="stat">
+        <span>最高分</span>
+        <strong id="bestScore">--</strong>
+      </div>
+      <div class="stat next-card">
+        <span>下一颗</span>
+        <!-- JS 中会错误查找 #nextPreview，导致预览不刷新 -->
+        <strong id="next-fruit">🍓</strong>
+      </div>
+      <button id="restartBtn" class="restart">重新开始</button>
+    </section>
+
+    <section class="game-shell">
+      <div id="board" class="board" aria-label="水果合成棋盘"></div>
+      <aside class="side-panel">
+        <h2>待排查问题</h2>
+        <ul>
+          <li>相同水果无法正常合成</li>
+          <li>分数会出现字符串拼接</li>
+          <li>下一颗水果预览不刷新</li>
+          <li>重新开始不会清空棋盘</li>
+          <li>首次打开最高分显示 null</li>
+          <li>手机端布局横向溢出</li>
+        </ul>
+      </aside>
+    </section>
+
+    <p id="message" class="message">请选择两个相同的水果进行合成。</p>
+  </main>
+
+  <script src="./game.js"></script>
+</body>
+</html>
